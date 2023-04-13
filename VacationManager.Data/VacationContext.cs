@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -9,10 +10,15 @@ using VacationManager.Entity;
 
 namespace VacationManager.Data
 {
-    public class VacationContext : DbContext
+    public class VacationContext : IdentityDbContext<VacationUser>
     {
         public VacationContext() : base("VacationConnection")
         {
+        }
+
+        public static VacationContext Create()
+        {
+            return new VacationContext();
         }
 
         public DbSet<Leader> Leaders { get; set; }
@@ -21,6 +27,6 @@ namespace VacationManager.Data
         public DbSet<Vacation> Vacations { get; set; }
         public DbSet<Worker> Workers { get; set; }
 
-        
-        }
+
+    }
 }
