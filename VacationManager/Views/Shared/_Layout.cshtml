@@ -26,6 +26,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Contact", "Home")">Contact us</a>
                     </li>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Dashboard")">Dashboard</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Dashboard")">Dashboard</a>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
 

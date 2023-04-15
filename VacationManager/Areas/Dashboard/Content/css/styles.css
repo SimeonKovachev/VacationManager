@@ -79,7 +79,11 @@
   --bs-highlight-bg: #fff3cd;
 }
 
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   :root {

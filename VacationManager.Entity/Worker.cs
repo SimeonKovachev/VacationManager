@@ -13,6 +13,7 @@ namespace VacationManager.Entity
         public int Age { get; set; }
         public string Profession { get; set; }
 
+
         public ICollection<Team> Teams { get; set; }
     }
 }
