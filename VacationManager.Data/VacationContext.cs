@@ -27,6 +27,6 @@ namespace VacationManager.Data
         public DbSet<Vacation> Vacations { get; set; }
         public DbSet<Worker> Workers { get; set; }
 
-
+        public System.Data.Entity.DbSet<VacationManager.Areas.Dashboard.ViewModels.UserActionModel> UserActionModels { get; set; }
     }
 }

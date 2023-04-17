@@ -172,9 +172,11 @@
     <Compile Include="Areas\Dashboard\Controllers\LeadersController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\ProjectsController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\TeamsController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\UsersController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\VacationsController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\WorkersController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
+    <Compile Include="Areas\Dashboard\ViewModels\UserViewModels.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -189,27 +191,6 @@
   <ItemGroup>
     <Content Include="Areas\Dashboard\Content\assets\favicon.ico" />
     <Content Include="Areas\Dashboard\Content\css\styles.css" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-bg_glass_100_f6f6f6_1x400.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-bg_glass_100_fdf5ce_1x400.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-icons_222222_256x240.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-icons_228ef1_256x240.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-icons_ef8c08_256x240.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-icons_ffd27a_256x240.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Areas\Dashboard\Content\jquery\jquery-ui.css" />
-    <Content Include="Areas\Dashboard\Content\jquery\jquery-ui.js" />
-    <Content Include="Areas\Dashboard\Content\jquery\jquery-ui.min.css" />
-    <Content Include="Areas\Dashboard\Content\jquery\jquery-ui.min.js" />
-    <Content Include="Areas\Dashboard\Content\jquery\jquery-ui.structure.css" />
-    <Content Include="Areas\Dashboard\Content\jquery\jquery-ui.structure.min.css" />
-    <Content Include="Areas\Dashboard\Content\jquery\jquery-ui.theme.css" />
-    <Content Include="Areas\Dashboard\Content\jquery\jquery-ui.theme.min.css" />
     <Content Include="Areas\Dashboard\Content\js\scripts.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -242,12 +223,10 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Dashboard\Views\Projects\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\Projects\Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Projects\Details.cshtml" />
     <Content Include="Areas\Dashboard\Views\Projects\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\Projects\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Vacations\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\Vacations\Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Vacations\Details.cshtml" />
     <Content Include="Areas\Dashboard\Views\Vacations\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\Vacations\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Teams\Create.cshtml" />
@@ -257,14 +236,16 @@
     <Content Include="Areas\Dashboard\Views\Teams\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Workers\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\Workers\Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Workers\Details.cshtml" />
     <Content Include="Areas\Dashboard\Views\Workers\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\Workers\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Leaders\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\Leaders\Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Leaders\Details.cshtml" />
     <Content Include="Areas\Dashboard\Views\Leaders\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\Leaders\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Users\Edit.cshtml" />
     <None Include="Scripts\jquery-3.6.4.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.4.js" />
     <Content Include="Scripts\jquery-3.6.4.min.js" />
@@ -350,6 +331,10 @@
     <ProjectReference Include="..\VacationManager.Entity\VacationManager.Entity.csproj">
       <Project>{21A61900-CF8B-4923-B9F8-EB2D37ED58D8}</Project>
       <Name>VacationManager.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VacationManager.Services\VacationManager.Services.csproj">
+      <Project>{b7eae8a4-57cc-4013-a7af-b044fec41fbe}</Project>
+      <Name>VacationManager.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

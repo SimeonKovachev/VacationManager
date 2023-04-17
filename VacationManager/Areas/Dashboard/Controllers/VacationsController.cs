@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using VacationManager.Data;
 using VacationManager.Entity;
+using VacationManager.Enums;
 
 namespace VacationManager.Areas.Dashboard.Controllers
 {
