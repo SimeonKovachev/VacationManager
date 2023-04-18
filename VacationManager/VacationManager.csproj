@@ -172,7 +172,6 @@
     <Compile Include="Areas\Dashboard\Controllers\LeadersController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\ProjectsController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\TeamsController.cs" />
-    <Compile Include="Areas\Dashboard\Controllers\UsersController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\VacationsController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\WorkersController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
@@ -224,7 +223,6 @@
     <Content Include="Areas\Dashboard\Views\Projects\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\Projects\Delete.cshtml" />
     <Content Include="Areas\Dashboard\Views\Projects\Edit.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Projects\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Vacations\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\Vacations\Delete.cshtml" />
     <Content Include="Areas\Dashboard\Views\Vacations\Edit.cshtml" />
@@ -242,10 +240,7 @@
     <Content Include="Areas\Dashboard\Views\Leaders\Delete.cshtml" />
     <Content Include="Areas\Dashboard\Views\Leaders\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\Leaders\Index.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Users\Index.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Users\Create.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Users\Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Projects\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.4.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.4.js" />
     <Content Include="Scripts\jquery-3.6.4.min.js" />
@@ -331,10 +326,6 @@
     <ProjectReference Include="..\VacationManager.Entity\VacationManager.Entity.csproj">
       <Project>{21A61900-CF8B-4923-B9F8-EB2D37ED58D8}</Project>
       <Name>VacationManager.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VacationManager.Services\VacationManager.Services.csproj">
-      <Project>{b7eae8a4-57cc-4013-a7af-b044fec41fbe}</Project>
-      <Name>VacationManager.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
