@@ -175,7 +175,6 @@
     <Compile Include="Areas\Dashboard\Controllers\VacationsController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\WorkersController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
-    <Compile Include="Areas\Dashboard\ViewModels\UserViewModels.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -229,7 +228,6 @@
     <Content Include="Areas\Dashboard\Views\Vacations\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Teams\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\Teams\Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Teams\Details.cshtml" />
     <Content Include="Areas\Dashboard\Views\Teams\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\Teams\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Workers\Create.cshtml" />
