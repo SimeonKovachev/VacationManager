@@ -24,6 +24,7 @@ namespace VacationManager.Entity
         [Required(ErrorMessage = "Please choose the Type of Vacation")]
         public VacationTypeEnum Type { get; set; }
 
+        [Display(Name = "Worker")]
         public int WorkerID { get; set; }
         public Worker Worker { get; set; }
 
