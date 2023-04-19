@@ -1,9 +1,49 @@
-﻿<h1 class="mt-4">Simple Sidebar</h1>
-<p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-<p>
-    Make sure to keep all page content within the
-    <code>#page-content-wrapper</code>
-    . The top navbar is optional, and just for demonstration. Just create an element with the
-    <code>#sidebarToggle</code>
-    ID which will toggle the menu when clicked.
-</p>
+﻿<h1 class="my-4">Dashboard</h1>
+
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4 hover-effect">
+            <div class="card-body fw-bold">Projects</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="@Url.Action("Index","Projects")">View More</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4 hover-effect">
+            <div class="card-body fw-bold">Vacations</div>
+            <div class="card-footer d-flex align-items-center justify-content-between ">
+                <a class="small text-white stretched-link" href="@Url.Action("Index","Vacations")">View More</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4 hover-effect">
+            <div class="card-body fw-bold">Teams</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="@Url.Action("Index","Teams")">View More</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-danger text-white mb-4 hover-effect">
+            <div class="card-body fw-bold">Leaders</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="@Url.Action("Index","Leaders")">View More</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4 hover-effect">
+            <div class="card-body fw-bold">Workers</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="@Url.Action("Index","Workers")">View More</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>

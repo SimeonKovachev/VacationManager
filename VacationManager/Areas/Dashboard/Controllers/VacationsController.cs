@@ -17,39 +17,24 @@ namespace VacationManager.Areas.Dashboard.Controllers
     {
         private VacationContext db = new VacationContext();
 
-        // GET: Dashboard/Vacations
+        // GET
         public async Task<ActionResult> Index()
         {
-            return View(await db.Vacations.ToListAsync());
+            var workers = db.Vacations.Include(t => t.Worker);
+            return View(await workers.ToListAsync());
         }
 
-        // GET: Dashboard/Vacations/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Vacation vacation = await db.Vacations.FindAsync(id);
-            if (vacation == null)
-            {
-                return HttpNotFound();
-            }
-            return View(vacation);
-        }
 
-        // GET: Dashboard/Vacations/Create
+        // GET
         public ActionResult Create()
         {
+            ViewBag.WorkerID = new SelectList(db.Workers, "ID", "FullName");
             return View();
         }
 
-        // POST: Dashboard/Vacations/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,StartDate,EndDate,Type")] Vacation vacation)
+        public async Task<ActionResult> Create([Bind(Include = "ID,StartDate,EndDate,Type,WorkerID")] Vacation vacation)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +42,7 @@ namespace VacationManager.Areas.Dashboard.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.WorkerID = new SelectList(db.Workers, "ID", "FullName", vacation.WorkerID);
 
             return View(vacation);
         }
@@ -73,6 +59,7 @@ namespace VacationManager.Areas.Dashboard.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.WorkerID = new SelectList(db.Workers, "ID", "FullName", vacation.WorkerID);
             return View(vacation);
         }
 
@@ -81,7 +68,7 @@ namespace VacationManager.Areas.Dashboard.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,StartDate,EndDate,Type")] Vacation vacation)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,StartDate,EndDate,Type,WorkerID")] Vacation vacation)
         {
             if (ModelState.IsValid)
             {
@@ -89,6 +76,7 @@ namespace VacationManager.Areas.Dashboard.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.WorkerID = new SelectList(db.Workers, "ID", "FullName", vacation.WorkerID);
             return View(vacation);
         }
 

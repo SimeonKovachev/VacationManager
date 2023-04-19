@@ -23,21 +23,6 @@ namespace VacationManager.Areas.Dashboard.Controllers
             return View(await teams.ToListAsync());
         }
 
-        // GET: Dashboard/Teams/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Team team = await db.Teams.FindAsync(id);
-            if (team == null)
-            {
-                return HttpNotFound();
-            }
-            return View(team);
-        }
-
         // GET: Dashboard/Teams/Create
         public ActionResult Create()
         {
@@ -47,9 +32,6 @@ namespace VacationManager.Areas.Dashboard.Controllers
             return View();
         }
 
-        // POST: Dashboard/Teams/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "ID,Name,ProjectID,LeaderID,WorkerID,NumOfWorkers")] Team team)
@@ -85,9 +67,7 @@ namespace VacationManager.Areas.Dashboard.Controllers
             return View(team);
         }
 
-        // POST: Dashboard/Teams/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "ID,Name,ProjectID,LeaderID,WorkerID,NumOfWorkers")] Team team)

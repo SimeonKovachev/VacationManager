@@ -18,7 +18,7 @@ namespace VacationManager.Entity
         [Display(Name = "Profession")]
         public string Profession { get; set; }
 
-
         public ICollection<Team> Teams { get; set; }
+        public ICollection<Vacation> Vacations { get; set; }
     }
 }
