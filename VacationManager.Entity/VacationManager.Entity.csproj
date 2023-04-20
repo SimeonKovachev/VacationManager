@@ -64,7 +64,6 @@
     <Compile Include="Team.cs" />
     <Compile Include="Vacation.cs" />
     <Compile Include="VacationUser.cs" />
-    <Compile Include="VacationWorker.cs" />
     <Compile Include="Worker.cs" />
   </ItemGroup>
   <ItemGroup>
