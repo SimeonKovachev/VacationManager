@@ -4,7 +4,49 @@
     ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="container-fluid">
+    <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+            <div id="loginForm" class="bg-light bg-gradient rounded p-4 p-sm-5 my-4 mx-3">
+
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <a href="@Url.Action("Index", "Home")" class="">
+                            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>LOGIN</h3>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form mb-3">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form mb-4">
+                        @Html.LabelFor(m => m.Password, new { @class = " control-label" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="form-check">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+                            @Html.LabelFor(m => m.RememberMe, new { @class = "form-check-label" })
+                        </div>
+                        
+                    </div>
+                    <button type="submit" value="Log in" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                    <p class="text-center mb-0">
+                        @Html.ActionLink("Register as a new user", "Register")
+                    </p>
+
+                }
+            </div>
+        </div>
+        
+    </div>
+</div>
+@*<h2>@ViewBag.Title.</h2>
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
@@ -44,10 +86,10 @@
                 <p>
                     @Html.ActionLink("Register as a new user", "Register")
                 </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
+                 Enable this once you have account confirmation enabled for password reset functionality
                     <p>
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
+                    </p>
             }
         </section>
     </div>
@@ -56,7 +98,7 @@
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

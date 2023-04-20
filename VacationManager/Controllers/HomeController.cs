@@ -10,7 +10,9 @@ namespace VacationManager.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.ShowNavBar = true;
             return View();
+           
         }
 
     }

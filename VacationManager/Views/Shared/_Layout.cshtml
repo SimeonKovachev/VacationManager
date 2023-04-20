@@ -7,70 +7,92 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <script src="https://kit.fontawesome.com/15484bcc60.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/font-awesome.css">
+    <link rel="icon" type="image/x-icon" href="~/Content/assets/images/JM.png" />
 
     <link rel="stylesheet" href="~/Content/assets/css/templatemo-softy-pinko.css">
+    <style>
+        .btn-link:hover {
+            color: #ff589e !important;
+        }
+    </style>
 
 </head>
 <body>
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="#" class="logo">
-                            <h4 class="header-text" style="color: mediumpurple;">QUARKYTECH</h4>
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="#welcome" class="active">Home</a></li>
-                            <li><a href="#features">About</a></li>
-                            <li><a href="#work-process">Work Process</a></li>
-                            <li><a href="#testimonials">Our Clients</a></li>
-                            <li><a href="#pricing-plans">Services</a></li>
-                            <li><a href="#contact-us">Contact Us</a></li>
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item">
-                                    <a href="@Url.Action("Index", "Dashboard")">Dashboard</a>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item">
-                                    <a href="@Url.Action("Index", "Dashboard")">Dashboard</a>
-                                </li>
-                            }
-                            @*@Html.Partial("_LoginPartial")*@
-                        </ul>
-                        
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
+    @if (ViewBag.ShowNavBar)
+    {
+        <header class="header-area header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="main-nav">
+                            <!-- ***** Logo Start ***** -->
+                            <a href="@Url.Action("Index", "Home")" class="logo">
+                                <h4 class="header-text" style="color: mediumpurple;">QUARKYTECH</h4>
+                            </a>
+                            <!-- ***** Logo End ***** -->
+                            <!-- ***** Menu Start ***** -->
+                            <ul class="nav">
+                                <li><a href="@Url.Action("Index","Home")" class="active">Home</a></li>
+                                <li><a href="#features">About</a></li>
+                                <li><a href="#work-process">Work Process</a></li>
+                                <li><a href="#testimonials">Our Clients</a></li>
+                                <li><a href="#pricing-plans">Services</a></li>
+                                <li><a href="#contact-us">Contact Us</a></li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="nav-item">
+                                        <a href="@Url.Action("Index", "Dashboard")">Dashboard</a>
+                                    </li>
+                                }
+                                else
+                                {
+
+                                }
+                                @Html.Partial("_LoginPartial")
+                            </ul>
+
+                            <a class='menu-trigger'>
+                                <span>Menu</span>
+                            </a>
+                            <!-- ***** Menu End ***** -->
+                        </nav>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-
-
+        </header>
+    }
+    else
+    {
+        
+    }
+    
     <div>
         @RenderBody()
-        <footer>
+
+        <footer class=" py-3">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <ul class="social">
-                            <li><a href="#welcome"><i class="fa-solid fa-house"></i></a></li>
+                            <li><a href="@Url.Action("Index","Home")"><i class="fa-solid fa-house"></i></a></li>
                             <li><a href="#features"><i class="fa-regular fa-address-card"></i></a></li>
-                            <li><a href="#work-process"><i class="fa-solid fa-briefcase"></i></i></a></li>
+                            <li><a href="#work-process"><i class="fa-solid fa-briefcase"></i></a></li>
                             <li><a href="#testimonials"><i class="fa-solid fa-users"></i></a></li>
                             <li><a href="#pricing-plans"><i class="fa-solid fa-gears"></i></a></li>
-                            <li><a href="#contact-us"><i class="fa-solid fa-phone"></i></a></li> 
+                            <li><a href="#contact-us"><i class="fa-solid fa-phone"></i></a></li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "Dashboard")"><i class="fa-solid fa-gauge"></i></a>
+                                </li>
+                            }
+                            else
+                            {
+
+                            }
+
                         </ul>
                     </div>
                 </div>
@@ -96,9 +118,10 @@
     <script src="~/Content/assets/js/waypoints.min.js"></script>
     <script src="~/Content/assets/js/jquery.counterup.min.js"></script>
     <script src="~/Content/assets/js/imgfix.min.js"></script>
-
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
     <!-- Global Init -->
     <script src="~/Content/assets/js/custom.js"></script>
+    @RenderSection("scripts", required: false)
 
 </body>
 </html>

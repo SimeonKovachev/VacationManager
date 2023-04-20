@@ -3,7 +3,45 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="container-fluid">
+    <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+            <div id="loginForm" class="bg-light bg-gradient rounded p-4 p-sm-5 my-4 mx-3">
+
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <a href="@Url.Action("Index", "Home")" class="">
+                            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>REGISTER</h3>
+                        </a>
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form mb-3">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                    <div class="form mb-4">
+                        @Html.LabelFor(m => m.Password, new { @class = " control-label" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                    <div class="form mb-4">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = " control-label" })
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+
+                    <button type="submit" value="Register" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                    <p class="text-center mb-0">
+                        <a href="@Url.Action("Login", "Account")">Already have an account?</a>
+                    </p>
+
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {

@@ -1,22 +1,36 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "ms-auto" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
+        <div class="nav-item">
+            <a class="btn btn-link dropdown-toggle" style="color: #1e1e1e; " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-regular fa-user"></i>
+            </a>
 
-    <ul class="navbar-nav ms-auto">
-        <li  class="nav-item">
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
-        </li>
-        <li  class="nav-item"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                @*<li>
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+                </li>*@
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            </ul>
+        </div>
     }
 }
 else
 {
-    <ul class="navbar-nav ms-auto">
-        <li class="nav-item">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
-        <li class="nav-item">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-    </ul>
+    <div class="nav-item">
+        <a class="btn btn-link dropdown-toggle" style="color: #1e1e1e; " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink"})</li>
+        </ul>
+    </div>
+
+
+
 }

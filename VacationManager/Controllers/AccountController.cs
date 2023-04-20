@@ -59,6 +59,7 @@ namespace VacationManager.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ShowNavBar = false;
             return View();
         }
 
@@ -140,6 +141,7 @@ namespace VacationManager.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.ShowNavBar = false;
             return View();
         }
 
