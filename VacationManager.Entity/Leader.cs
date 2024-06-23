@@ -11,10 +11,13 @@ namespace VacationManager.Entity
     public class Leader
     {
         public int ID { get; set; }
+
         [Display(Name = "Full Name")]
         public string FullName { get; set; }
+
         [Display(Name = "Age")]
         public int Age { get; set; }
+
         [Display(Name = "Profession")]
         public string Profession { get; set; }
 
